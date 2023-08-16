@@ -1,24 +1,15 @@
 #!/bin/sh
 
-AUTOSTART_DIR=~/.config/weem
-AUTOSTART_SCRIPT=~/.config/weem/autostart.sh
-
-if [ ! -d "$AUTOSTART_DIR" ]; then
-  echo " -> Creating autostart directory"
-  mkdir -p ~/.config/weem
-fi
-
-if [ ! -f "$AUTOSTART_SCRIPT" ]; then
-  echo " -> Creating autostart script"
-  touch ~/.config/weem/autostart.sh
-fi
+echo " -> Creating autostart directory"
+mkdir -p ~/.config/weem
+echo " -> Creating autostart script"
+touch ~/.config/weem/autostart.sh
 
 echo " -> Compiling source code"
-sh build.sh || { echo " -> ERROR: compilation failed. Aborting installation."; exit 1; }
-
+sh build.sh
 echo " -> Installing"
-sudo rm -f /usr/bin/weem
-sudo cp ./weem /usr/bin/
+sudo rm /usr/bin/weem
+sudo cp weem /usr/bin/
 
 touch ~/.weembar
 
