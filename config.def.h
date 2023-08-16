@@ -4,6 +4,7 @@
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include "main.h"
+#include "colors.h"
 
 #define true 1
 #define false 0
@@ -36,8 +37,7 @@ KeyMod down       = { XK_Down, MOD };
 KeyMod left       = { XK_Left, MOD };
 KeyMod right      = { XK_Right, MOD };
 
-KeyMod toggle_bar          = { XK_B, MOD };
-KeyMod toggle_bar_position = { XK_B, MOD | SHIFT };
+KeyMod toggle_bar = { XK_B, MOD };
 
 #define num_keys 7
 
@@ -96,8 +96,8 @@ float master_tick             = 0.05;
 
 unsigned int gap_width        = 6;
 unsigned int border_width     = 2;
-unsigned long border_focus    = 0x7287FD;
-unsigned long border_unfocus  = 0x1E2030;
+unsigned long border_focus    = nord8;
+unsigned long border_unfocus  = nord7;
 
 // weembar
 unsigned int show_bar         = true;
@@ -108,10 +108,10 @@ unsigned int icons_size       = 7;
 unsigned int icons_padding    = 10; // for best results, make it (icons_size + (font_size / 2))
 unsigned int bar_occu_size    = 3;
 unsigned int bar_occu_type    = underline;
-unsigned int desktop_focus    = 0x7287FD;
-unsigned int desktop_unfocus  = 0x1E2030;
-unsigned int text_focus       = 0x393939;
-unsigned int text_unfocus     = 0xECEFF4;
+unsigned long desktop_focus    = nord3;
+unsigned long desktop_unfocus  = nord0;
+unsigned long text_focus       = nord6;
+unsigned long text_unfocus     = nord6;
 
 unsigned int bar_refresh_rate = 10000; // in microseconds: 1s is recommended
 
@@ -121,11 +121,11 @@ unsigned int show_seconds     = false;
 unsigned int bar_position     = bottom;
 unsigned int bar_size         = 30;
 unsigned int bar_border_size  = 0;
-unsigned int bar_border_color = 0xff0000;
+unsigned long bar_border_color = 0xff0000;
 unsigned int bar_padding_x    = 0;
 unsigned int bar_padding_y    = 0;
-unsigned long font_color      = 0xECEFF4;
-unsigned long bar_color       = 0x181926;
+unsigned long font_color      = nord6;
+unsigned long bar_color       = nord1;
 unsigned int font_size        = 9;
 char *font_name               = "monospace:size=9";
 
